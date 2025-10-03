@@ -6,19 +6,19 @@ import './index.css'
 import App from './App.tsx'
 
 const client = new ApolloClient({
-  link: new HttpLink({uri: 'https://flyby-router-demo.herokuapp.com/'}),
+  link: new HttpLink({uri: 'http://localhost:4000/'}),
   cache: new InMemoryCache(),
 });
 
 client
   .query({
     query: gql`
-      query GetLocations {
-        locations {
+      query getProducts {
+        products {
           id
           name
-          description
-          photo
+          price
+          inStock
         }
       }
     `,
