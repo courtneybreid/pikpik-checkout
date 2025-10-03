@@ -39,8 +39,8 @@ let orders = [];
 
 const resolvers = {
   Query: {
-    getProducts: () => products,
-    getOrder: (_, { id }) => orders.find(o => o.id === id),
+    products: () => products,
+    order: (_, { id }) => orders.find(o => o.id === id),
   },
 };
 
