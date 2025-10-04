@@ -17,6 +17,13 @@ export default function ProductList() {
   return (
     <div className="p-4">
       <h2 className="text-xl font-bold mb-4">The Lab</h2>
+      <div>
+        <ul>
+          {data.products.map((product) => (
+            <li key={product.id}>{product.name} | {product.price}💎</li>
+          ))}
+        </ul>
+      </div>
     </div>
   )
 }
