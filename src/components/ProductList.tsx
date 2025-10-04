@@ -7,7 +7,9 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import { Grid } from '@mui/material';
+import { Container } from '@mui/material';
+import CssBaseline from '@mui/material/CssBaseline';
 
 
 type Product = {
@@ -26,27 +28,31 @@ export default function ProductList() {
   //TODO: Pull Product Card out into its own component
 
   return (
-    <div className="p-4">
-      <h2 className="text-xl font-bold mb-4">The Lab</h2>
-      <div>
+    <Container maxWidth="lg">
+      <Grid container spacing={2}>
+          <Grid size={12}>
+            <Typography variant="h2">The Lab</Typography>
+          </Grid>
           {data.products.map((product) => (
-            <Card key={product.id}>
-              <CardContent>
-                <Typography variant="h5" gutterBottom sx={{ color: 'text.secondary'}}>
-                  {product.name}
-                </Typography>
-                <Typography variant="h6" component="div">
-                  {product.price}💎  
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="medium" variant="contained" color="primary">
-                  Add to Cart
-                </Button>
-              </CardActions>
-            </Card>
+            <Grid size={3}>
+              <Card key={product.id}>
+                <CardContent>
+                  <Typography variant="h5" gutterBottom sx={{ color: 'text.secondary'}}>
+                    {product.name}
+                  </Typography>
+                  <Typography variant="h6" component="div">
+                    {product.price}💎  
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button size="medium" variant="contained" color="primary">
+                    Add to Cart
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>
           ))}
-      </div>
-    </div>
+      </Grid>
+    </Container>
   )
 }
