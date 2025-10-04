@@ -22,6 +22,13 @@ const typeDefs = gql`
     order(id: ID!): Order
   }
 
+  type Mutation {
+    createOrder(
+      productIds: [ID!]!,
+      customerName: String!,
+      customerEmail: String!
+    ): Order!
+  }
 `;
 
 let products = [
@@ -41,6 +48,21 @@ const resolvers = {
   Query: {
     products: () => products,
     order: (_, { id }) => orders.find(o => o.id === id),
+  },
+  Mutation: {
+    createOrder: (_, { productIds, customerName, customerEmail }) => {
+      const selected = products.filter(p => productIds.includes(p.id));
+      const total = selected.reduce((sum, p) => sum + p.price, 0);
+      const newOrder = {
+        id: String(orders.length + 1),
+        products: selected,
+        total,
+        customerName,
+        customerEmail,
+      };
+      orders.push(newOrder);
+      return newOrder;
+    },
   },
 };
 

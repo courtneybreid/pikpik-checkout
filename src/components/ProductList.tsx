@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/client/react";
 import { GET_PRODUCTS } from "../graphql/queries";
+import { useCart } from "../context/CartContext";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -17,6 +18,7 @@ type Product = {
 
 export default function ProductList() {
   const { loading, error, data } = useQuery<{ products: Product[] }>(GET_PRODUCTS);
+  const { dispatch } = useCart();
 
   if (loading) return <p className="text-gray-500">Loading products...</p>
   if (error) return <p className="text-red-500">Error loading products: {error.message}</p>
@@ -41,7 +43,10 @@ export default function ProductList() {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="medium" variant="contained" color="primary">
+                  <Button size="medium" variant="contained" color="primary" 
+                    onClick={() =>
+                      dispatch({ type: "ADD", product: { id: product.id, name: product.name, price: product.price } })
+                  }>
                     Add to Cart
                   </Button>
                 </CardActions>
