@@ -1,8 +1,9 @@
 # Pikpik Checkout
-A small demo of an e-commerce checkout flow built with React and Typescript.
+A small demo of an e-commerce checkout flow built with React and Typescript. 
 
 ## Features
-Nothing yet!
+### Product List Page
+- Fetch products via GraphQL query
 
 ## Getting Started
 
@@ -17,3 +18,10 @@ Nothing yet!
 `npm run dev`
 
 The app will be available at http://localhost:5173
+
+## TODO
+- Hook up "Add to Cart" buttons to query
+- Create cart page
+- Add basic checkout flow
+- Testing
+- 
