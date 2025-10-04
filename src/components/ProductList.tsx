@@ -31,7 +31,7 @@ export default function ProductList() {
           <Grid size={12}>
             <Typography variant="h2">The Lab</Typography>
           </Grid>
-          {data.products.map((product) => (
+          {data?.products?.map((product, id) => (
             <Grid size={3}>
               <Card key={product.id}>
                 <CardContent>

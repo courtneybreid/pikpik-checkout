@@ -1,6 +1,5 @@
 import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
-import { ApolloClient, HttpLink, InMemoryCache, gql } from '@apollo/client';
+import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
 import { ApolloProvider } from "@apollo/client/react";
 import { BrowserRouter } from 'react-router-dom';
 import { StrictMode } from 'react'
@@ -8,6 +7,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import AppRoutes from './Routes.tsx'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { CartProvider } from './context/CartContext.tsx';
 
 const theme = createTheme();
 
@@ -23,7 +23,9 @@ createRoot(document.getElementById('root')!).render(
     <ApolloProvider client={client}>
       <BrowserRouter>
         <ThemeProvider theme={theme}>
-          <AppRoutes />
+          <CartProvider>
+            <AppRoutes />
+          </CartProvider>
         </ThemeProvider>
       </BrowserRouter>
     </ApolloProvider>

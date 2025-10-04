@@ -1,4 +1,6 @@
-import React, { createContext, useContext, useReducer, ReactNode } from "react";
+import React, { createContext, useContext, useReducer } from "react";
+import type { ReactNode } from "react";
+
 
 type CartItem = {
   id: string;
