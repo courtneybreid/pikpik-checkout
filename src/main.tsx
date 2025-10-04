@@ -8,6 +8,7 @@ import './index.css'
 import AppRoutes from './Routes.tsx'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CartProvider } from './context/CartContext.tsx';
+import { Navbar } from "./components/Navbar";
 
 const theme = createTheme();
 
@@ -21,13 +22,14 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <CssBaseline enableColorScheme />
     <ApolloProvider client={client}>
-      <BrowserRouter>
-        <ThemeProvider theme={theme}>
-          <CartProvider>
+      <CartProvider>
+        <BrowserRouter>
+          <ThemeProvider theme={theme}>
+            <Navbar />
             <AppRoutes />
-          </CartProvider>
-        </ThemeProvider>
-      </BrowserRouter>
+          </ThemeProvider>
+        </BrowserRouter>
+      </CartProvider>
     </ApolloProvider>
   </StrictMode>
 )
