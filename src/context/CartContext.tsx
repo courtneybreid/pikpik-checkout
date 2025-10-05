@@ -15,7 +15,9 @@ type CartState = {
 type Action =
   | { type: "ADD"; product: Omit<CartItem, "quantity"> }
   | { type: "REMOVE"; id: string }
-  | { type: "CLEAR" };
+  | { type: "CLEAR" }
+  | { type: "INCREMENT"; id: string }
+  | { type: "DECREMENT"; id: string };
 
 const CartContext = createContext<{
   state: CartState;
@@ -48,6 +50,20 @@ function reducer(state: CartState, action: Action): CartState {
       return { items: state.items.filter((i) => i.id !== action.id) };
     case "CLEAR":
       return { items: [] };
+    case "INCREMENT":
+      return {
+        items: state.items.map((i) =>
+          i.id === action.id ? { ...i, quantity: i.quantity + 1 } : i
+        ),
+      };
+    case "DECREMENT":
+      return {
+        items: state.items
+          .map((i) =>
+            i.id === action.id ? { ...i, quantity: i.quantity - 1 } : i
+          )
+          .filter((i) => i.quantity > 0), // remove if quantity hits 0
+      };
     default:
       return state;
   }

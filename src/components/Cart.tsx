@@ -2,6 +2,7 @@ import { useMutation } from "@apollo/client/react";
 import { CREATE_ORDER } from "../graphql/mutations";
 import { useCart } from "../context/CartContext";
 import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
 import { Grid } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
@@ -34,7 +35,31 @@ export default function Cart() {
             {state.items.map((item) => (
               <Grid container key={item.id}>
                 <Grid size={11}>
-                  {item.name} × {item.quantity}
+                  {item.name}
+                  <br />
+                  <ButtonGroup
+                    variant="contained"
+                    aria-label="Controls for quantity of {item.name}"
+                    size="small"
+                  >
+                    <Button
+                      aria-label="Decrease quantity by one"
+                      onClick={() =>
+                        dispatch({ type: "DECREMENT", id: item.id })
+                      }
+                    >
+                      -
+                    </Button>
+                    <Button variant="outlined">{item.quantity}</Button>
+                    <Button
+                      aria-label="Increase quantity by one"
+                      onClick={() =>
+                        dispatch({ type: "INCREMENT", id: item.id })
+                      }
+                    >
+                      +
+                    </Button>
+                  </ButtonGroup>
                 </Grid>
                 <Grid size={1} textAlign={"right"}>
                   💎{item.price * item.quantity}
