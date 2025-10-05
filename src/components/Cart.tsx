@@ -1,9 +1,7 @@
 import { useMutation } from "@apollo/client/react";
 import { CREATE_ORDER } from "../graphql/mutations";
 import { useCart } from "../context/CartContext";
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Card from "@mui/material/Card";
 import { Grid } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
