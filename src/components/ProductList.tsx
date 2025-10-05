@@ -26,34 +26,32 @@ export default function ProductList() {
   //TODO: Pull Product Card out into its own component
 
   return (
-    <Container maxWidth="lg">
-      <Grid container spacing={2}>
-          <Grid size={12}>
-            <Typography variant="h2">The Lab</Typography>
-          </Grid>
-          {data?.products?.map((product, id) => (
-            <Grid size={3}>
-              <Card key={product.id}>
-                <CardContent>
-                  <Typography variant="h5" gutterBottom sx={{ color: 'text.secondary'}}>
-                    {product.name}
-                  </Typography>
-                  <Typography variant="h6" component="div">
-                    {product.price}💎  
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button size="medium" variant="contained" color="primary" 
-                    onClick={() =>
-                      dispatch({ type: "ADD", product: { id: product.id, name: product.name, price: product.price } })
-                  }>
-                    Add to Cart
-                  </Button>
-                </CardActions>
-              </Card>
-            </Grid>
-          ))}
+    <>
+      <Grid size={12}>
+        <Typography variant="h2">The Lab</Typography>
       </Grid>
-    </Container>
+      {data?.products?.map((product) => (
+        <Grid size={3}>
+          <Card key={product.id}>
+            <CardContent>
+              <Typography variant="h5" gutterBottom sx={{ color: 'text.secondary'}}>
+                {product.name}
+              </Typography>
+              <Typography variant="h6" component="div">
+                💎{product.price}  
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="medium" variant="contained" color="primary" 
+                onClick={() =>
+                  dispatch({ type: "ADD", product: { id: product.id, name: product.name, price: product.price } })
+              }>
+                Add to Cart
+              </Button>
+            </CardActions>
+          </Card>
+        </Grid>
+      ))}
+    </>
   )
 }

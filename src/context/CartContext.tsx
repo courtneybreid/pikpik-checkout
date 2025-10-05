@@ -76,5 +76,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
 }
 
 export function useCart() {
-  return useContext(CartContext);
+  const { state, dispatch } = useContext(CartContext);
+
+  const total = state.items.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
+  return { state, dispatch, total };
 }
