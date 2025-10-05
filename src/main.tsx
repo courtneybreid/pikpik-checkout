@@ -5,9 +5,9 @@ import { BrowserRouter } from 'react-router-dom';
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import AppRoutes from './Routes.tsx'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CartProvider } from './context/CartContext.tsx';
+import ContentContainer from './components/ContentContainer.tsx';
 import { Navbar } from "./components/Navbar";
 
 const theme = createTheme();
@@ -26,7 +26,7 @@ createRoot(document.getElementById('root')!).render(
         <BrowserRouter>
           <ThemeProvider theme={theme}>
             <Navbar />
-            <AppRoutes />
+            <ContentContainer />
           </ThemeProvider>
         </BrowserRouter>
       </CartProvider>
