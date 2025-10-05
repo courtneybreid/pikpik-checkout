@@ -1,6 +1,6 @@
-import { Grid } from '@mui/material';
-import { Container } from '@mui/material';
-import AppRoutes from '../Routes.tsx'
+import { Grid } from "@mui/material";
+import { Container } from "@mui/material";
+import AppRoutes from "../Routes.tsx";
 
 export default function ContentContainer() {
   return (
@@ -9,5 +9,5 @@ export default function ContentContainer() {
         <AppRoutes />
       </Grid>
     </Container>
-  )
+  );
 }

@@ -9,6 +9,7 @@ A small demo of an e-commerce checkout flow built with React and Typescript.
 ### Cart Page
 - Display cart contents
 - Save cart data in localStorage
+- Show total cost
 
 ## Getting Started
 
@@ -28,8 +29,6 @@ The app will be available at http://localhost:5173
 - Add basic checkout flow
 - Testing
 - Adjust cart quantity/remove
-- Cart cards
-- Show total cost
 - Photos for items (and maybe descriptions)
 - Testing?
 - Checkout page

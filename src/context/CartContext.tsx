@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useReducer, useEffect } from "react";
 import type { ReactNode } from "react";
 
-
 type CartItem = {
   id: string;
   name: string;
@@ -55,14 +54,10 @@ function reducer(state: CartState, action: Action): CartState {
 }
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [state, dispatch] = useReducer(
-    reducer,
-    { items: [] },
-    () => {
-      const stored = localStorage.getItem("cart");
-      return stored ? { items: JSON.parse(stored) } : { items: [] };
-    }
-  );
+  const [state, dispatch] = useReducer(reducer, { items: [] }, () => {
+    const stored = localStorage.getItem("cart");
+    return stored ? { items: JSON.parse(stored) } : { items: [] };
+  });
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(state.items));
