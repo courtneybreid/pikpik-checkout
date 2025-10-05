@@ -4,6 +4,11 @@ A small demo of an e-commerce checkout flow built with React and Typescript.
 ## Features
 ### Product List Page
 - Fetch products via GraphQL query
+- Allow user to add products to cart
+  
+### Cart Page
+- Display cart contents
+- Save cart data in localStorage
 
 ## Getting Started
 
@@ -20,8 +25,12 @@ A small demo of an e-commerce checkout flow built with React and Typescript.
 The app will be available at http://localhost:5173
 
 ## TODO
-- Hook up "Add to Cart" buttons to query
-- Create cart page
 - Add basic checkout flow
 - Testing
-- 
+- Adjust cart quantity/remove
+- Cart cards
+- Show total cost
+- Photos for items (and maybe descriptions)
+- Testing?
+- Checkout page
+- Make sure all form elements labeled
