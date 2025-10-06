@@ -1,11 +1,17 @@
 import { useMutation } from "@apollo/client/react";
 import { CREATE_ORDER } from "../graphql/mutations";
 import { useCart } from "../context/CartContext";
-import Button from "@mui/material/Button";
-import ButtonGroup from "@mui/material/ButtonGroup";
-import { Grid } from "@mui/material";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
+import {
+  Box,
+  Button,
+  ButtonGroup,
+  Card,
+  CardContent,
+  CardMedia,
+  Grid,
+  Typography,
+  Stack,
+} from "@mui/material";
 
 export default function Cart() {
   const { state, dispatch, total } = useCart();
@@ -30,46 +36,71 @@ export default function Cart() {
       {state.items.length === 0 ? (
         <Typography>Your cart is empty.</Typography>
       ) : (
-        <Grid size={12}>
+        <Grid size={8} offset={1}>
           <Stack spacing={4}>
             {state.items.map((item) => (
-              <Grid container key={item.id}>
-                <Grid size={11}>
-                  {item.name}
-                  <br />
-                  <ButtonGroup
-                    variant="contained"
-                    aria-label="Controls for quantity of {item.name}"
-                    size="small"
+              <Box key={item.id}>
+                <Card
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <CardMedia
+                    component="img"
+                    image={item.photo}
+                    alt={item.name}
+                    sx={{
+                      height: 150,
+                      width: 150,
+                      objectFit: "contain",
+                    }}
+                  />
+                  <CardContent>
+                    <Typography variant="subtitle1">{item.name}</Typography>
+                    <Box>
+                      <ButtonGroup
+                        variant="contained"
+                        aria-label="Controls for quantity of {item.name}"
+                        size="small"
+                      >
+                        <Button
+                          aria-label="Decrease quantity by one"
+                          onClick={() =>
+                            dispatch({ type: "DECREMENT", id: item.id })
+                          }
+                        >
+                          -
+                        </Button>
+                        <Button variant="outlined">{item.quantity}</Button>
+                        <Button
+                          aria-label="Increase quantity by one"
+                          onClick={() =>
+                            dispatch({ type: "INCREMENT", id: item.id })
+                          }
+                        >
+                          +
+                        </Button>
+                      </ButtonGroup>
+                    </Box>
+                  </CardContent>
+                  <Typography
+                    variant="subtitle1"
+                    sx={{
+                      minWidth: "70px",
+                      pr: 2,
+                      textAlign: "right",
+                    }}
                   >
-                    <Button
-                      aria-label="Decrease quantity by one"
-                      onClick={() =>
-                        dispatch({ type: "DECREMENT", id: item.id })
-                      }
-                    >
-                      -
-                    </Button>
-                    <Button variant="outlined">{item.quantity}</Button>
-                    <Button
-                      aria-label="Increase quantity by one"
-                      onClick={() =>
-                        dispatch({ type: "INCREMENT", id: item.id })
-                      }
-                    >
-                      +
-                    </Button>
-                  </ButtonGroup>
-                </Grid>
-                <Grid size={1} textAlign={"right"}>
-                  💎{item.price * item.quantity}
-                </Grid>
-                <hr />
-              </Grid>
+                    💎{item.price * item.quantity}
+                  </Typography>
+                </Card>
+              </Box>
             ))}
             <hr />
           </Stack>
-          <Grid size={2} offset={10} textAlign={"right"}>
+          <Grid size={4} offset={8} textAlign={"right"}>
             <strong>Total: 💎{total}</strong>
             <Button onClick={handleCheckout} variant="contained">
               Checkout

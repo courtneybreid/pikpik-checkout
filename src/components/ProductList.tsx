@@ -1,18 +1,22 @@
 import { useQuery } from "@apollo/client/react";
 import { GET_PRODUCTS } from "../graphql/queries";
 import { useCart } from "../context/CartContext";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import { Grid } from "@mui/material";
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Grid,
+  Typography,
+} from "@mui/material";
 
 type Product = {
   id: string;
   name: string;
   price: number;
   inStock: boolean;
+  photo: string;
 };
 
 export default function ProductList() {
@@ -37,6 +41,13 @@ export default function ProductList() {
       {data?.products?.map((product) => (
         <Grid size={3}>
           <Card key={product.id}>
+            <CardMedia
+              component="img"
+              height="200"
+              image={product.photo}
+              alt={product.name}
+              sx={{ objectFit: "contain" }}
+            />
             <CardContent>
               <Typography
                 variant="h5"
@@ -61,6 +72,7 @@ export default function ProductList() {
                       id: product.id,
                       name: product.name,
                       price: product.price,
+                      photo: product.photo,
                     },
                   })
                 }
