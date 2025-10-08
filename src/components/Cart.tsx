@@ -15,7 +15,7 @@ import {
 
 export default function Cart() {
   const { state, dispatch, total } = useCart();
-  const [createOrder, { loading, error, data }] = useMutation(CREATE_ORDER);
+  const [createOrder, { loading, error }] = useMutation(CREATE_ORDER);
 
   const handleCheckout = async () => {
     const productIds = state.items.flatMap((item) =>
