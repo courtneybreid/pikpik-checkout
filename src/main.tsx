@@ -13,7 +13,7 @@ import { Navbar } from "./components/Navbar";
 const theme = createTheme();
 
 const client = new ApolloClient({
-  link: new HttpLink({ uri: "http://localhost:4000/" }),
+  link: new HttpLink({ uri: "https://pikpik-checkout.onrender.com/" }),
   cache: new InMemoryCache(),
 });
 
