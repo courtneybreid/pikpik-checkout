@@ -28,9 +28,9 @@ const CartContext = createContext<{
   dispatch: () => {},
 });
 
-const initialState: CartState = {
-  items: JSON.parse(localStorage.getItem("cart") || "[]"),
-};
+// const initialState: CartState = {
+//   items: JSON.parse(localStorage.getItem("cart") || "[]"),
+// };
 
 function reducer(state: CartState, action: Action): CartState {
   switch (action.type) {

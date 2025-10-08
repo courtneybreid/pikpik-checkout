@@ -108,12 +108,12 @@ export default function Cart() {
           </Grid>
         </Grid>
       )}
-      {data && (
+      {/* {data && (
         <p className="mt-3 text-green-600">
           Order placed! ID: {data.createOrder.id}, Status:{" "}
           {data.createOrder.status}
         </p>
-      )}
+      )} */}
     </Grid>
   );
 }

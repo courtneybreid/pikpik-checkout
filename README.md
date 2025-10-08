@@ -37,7 +37,7 @@ The app will be available at http://localhost:5173
 
 - Add basic checkout flow
 - Testing
-- Photos for items (and maybe descriptions)
+- Descriptions for items
 - Testing?
 - Checkout page
 - Make sure all form elements labeled
