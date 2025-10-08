@@ -46,7 +46,7 @@ let products = [
     price: 2,
     inStock: true,
     category: "Item",
-    photo: "./src/assets/spicy_spray.png",
+    photo: "${BASE_URL}/images/spicy_spray.png",
   },
   {
     id: "2",
@@ -54,7 +54,7 @@ let products = [
     price: 8,
     inStock: true,
     category: "Item",
-    photo: "./src/assets/bomb_rock.png",
+    photo: "${BASE_URL}/images/bomb_rock.png",
   },
   {
     id: "3",
@@ -62,7 +62,7 @@ let products = [
     price: 8,
     inStock: false,
     category: "Item",
-    photo: "./src/assets/ice_blast.png",
+    photo: "${BASE_URL}/images/ice_blast.png",
   },
   {
     id: "4",
@@ -70,7 +70,7 @@ let products = [
     price: 5,
     inStock: true,
     category: "Item",
-    photo: "./src/assets/emergency_kit.png",
+    photo: "${BASE_URL}/images/emergency_kit.png",
   },
   {
     id: "5",
@@ -78,7 +78,7 @@ let products = [
     price: 3,
     inStock: true,
     category: "Item",
-    photo: "./src/assets/scrummy_bone.png",
+    photo: "${BASE_URL}/images/scrummy_bone.png",
   },
   {
     id: "6",
@@ -86,7 +86,7 @@ let products = [
     price: 30,
     inStock: false,
     category: "Item",
-    photo: "./src/assets/lightning_shock.png",
+    photo: "${BASE_URL}/images/lightning_shock.png",
   },
   {
     id: "7",
@@ -94,7 +94,7 @@ let products = [
     price: 10,
     inStock: true,
     category: "Item",
-    photo: "./src/assets/trackonator.png",
+    photo: "${BASE_URL}/images/trackonator.png",
   },
   {
     id: "8",
@@ -102,7 +102,7 @@ let products = [
     price: 10,
     inStock: false,
     category: "Item",
-    photo: "./src/assets/mine.png",
+    photo: "${BASE_URL}/images/mine.png",
   },
 ];
 
