@@ -1,4 +1,11 @@
+import express from "express";
+import path from "path";
 const { ApolloServer, gql } = require("apollo-server");
+const app = express();
+
+const BASE_URL = process.env.BASE_URL || "http://localhost:4000";
+
+app.use("/images", express.static(path.join(process.cwd(), "public/images")));
 
 const typeDefs = gql`
   type Product {
@@ -35,7 +42,7 @@ const typeDefs = gql`
 let products = [
   {
     id: "1",
-    name: "Pikpik Carrot",
+    name: "Spicy Spray",
     price: 2,
     inStock: true,
     category: "Item",
